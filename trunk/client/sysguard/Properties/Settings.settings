@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="sysguard.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="rememberLogin" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="userNameList" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="passwords" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="pwdseparator" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">,</Value>
+    </Setting>
+    <Setting Name="nameandpwdseparator" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">:</Value>
+    </Setting>
+    <Setting Name="sysguard_SysguardWS_sysguard" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.5.1.116:8080/axis2/services/sysguard</Value>
+    </Setting>
+    <Setting Name="dateFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yyyy/MM/dd</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

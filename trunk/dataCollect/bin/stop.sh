@@ -1,0 +1,1 @@
+kill `ps aux | grep "java -jar dataclt.jar" | grep -v grep | awk '{print $2}'`

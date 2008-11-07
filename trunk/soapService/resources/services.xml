@@ -1,0 +1,15 @@
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: #axisVersion# #today# -->
+<serviceGroup>
+<service name="sysguard" scope="soapsession">
+<messageReceivers>
+<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out" class="cn.livedoor.www.sysguard.SysguardMessageReceiverInOut"/>
+</messageReceivers>
+<module ref="logging"/>
+<parameter name="ServiceClass" locked="false">cn.livedoor.www.sysguard.SysguardSkeleton</parameter>
+<operation name="login" mep="http://www.w3.org/2004/08/wsdl/in-out">
+<actionMapping>http://www.livedoor.cn/sysguard/login</actionMapping>
+<outputActionMapping>http://www.livedoor.cn/sysguard/sysguard/loginResponse</outputActionMapping>
+</operation>
+</service>
+</serviceGroup>

@@ -1,0 +1,1 @@
+wsdl2java -uri .\sysguard.wsdl -ss -sd cn.livedoor.sysguard

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+	<properties
+		resource="cn/livedoor/security/sysguard/properties/database.properties" />
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" errorTracingEnabled="true" maxRequests="32"
+		maxSessions="10" maxTransactions="5" useStatementNamespaces="true" />
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property value="${driver}" name="JDBC.Driver" />
+			<property value="${url}" name="JDBC.ConnectionURL" />
+			<property value="${username}" name="JDBC.Username" />
+			<property value="${password}" name="JDBC.Password" />
+			<property name="JDBC.DefaultAutoCommit" value="true" />
+			<property name="Pool.MaximumActiveConnections" value="10" />
+			<property name="Pool.MaximumIdleConnections" value="5" />
+			<property name="Pool.MaximumCheckoutTime" value="120000" />
+			<property name="Pool.TimeToWait" value="500" />
+			<property name="Pool.PingQuery"
+				value="select 1 from test" />
+			<property name="Pool.PingEnabled" value="true" />
+			<property name="Pool.PingConnectionsOlderThan" value="1" />
+			<property name="Pool.PingConnectionsNotUsedFor" value="1" />
+		</dataSource>
+	</transactionManager>
+
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/applog_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/data_info_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/data_info_type_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/host_group_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/host_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/operation_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/os_type_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/role_SqlMap.xml" />
+	<sqlMap
+		resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/user_SqlMap.xml" />
+	
+</sqlMapConfig>

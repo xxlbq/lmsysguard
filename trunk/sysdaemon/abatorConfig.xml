@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Abator for iBATIS Configuration 1.0//EN"
+  "http://ibatis.apache.org/dtd/abator-config_1_0.dtd">
+
+<abatorConfiguration>
+	<abatorContext><!-- TODO: Add Database Connection Information -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.5.1.116:3306/sysguard" userId="info"
+			password="livedoor">
+			<classPathEntry
+				location="D:\tools\jdbc\mysql-connector-java-3.1.13-bin.jar" />
+		</jdbcConnection>
+
+		<javaModelGenerator
+			targetPackage="cn.livedoor.security.sysguard.domain"
+			targetProject="sysdaemon" />
+		<sqlMapGenerator
+			targetPackage="cn.livedoor.security.sysguard.persistence.sqlmapdao.sql"
+			targetProject="sysdaemon" />
+		<daoGenerator type="IBATIS"
+			targetPackage="cn.livedoor.security.sysguard.persistence.sqlmapdao"
+			targetProject="sysdaemon" />
+
+		<table schema="sysguard" tableName="applog"></table>
+		<table schema="sysguard" tableName="data_info"></table>
+		<table schema="sysguard" tableName="data_info_type"></table>
+		<table schema="sysguard" tableName="host"></table>
+		<table schema="sysguard" tableName="host_group"></table>
+		<table schema="sysguard" tableName="operation"></table>
+		<table schema="sysguard" tableName="os_type"></table>
+		<table schema="sysguard" tableName="role"></table>
+		<table schema="sysguard" tableName="user"></table>
+
+	</abatorContext>
+</abatorConfiguration>

@@ -1,0 +1,884 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{593A9604-8BDF-4C71-A078-438C70E12062}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sysguard</RootNamespace>
+    <AssemblyName>sysguard</AssemblyName>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>A1AEF55B79569C87A9E20F1126580F93E9A5F3FA</ManifestCertificateThumbprint>
+    <ManifestKeyFile>sysguard_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <ApplicationIcon>livedoor.ico</ApplicationIcon>
+    <StartupObject>sysguard.Program</StartupObject>
+    <PublishUrl>D:\pub\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://10.5.1.116/sysguard/</UpdateUrl>
+    <SupportUrl>http://www.livedoor.cn</SupportUrl>
+    <ProductName>sysguard</ProductName>
+    <PublisherName>英极软件</PublisherName>
+    <CreateWebPageOnPublish>false</CreateWebPageOnPublish>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime, Version=2.7.5.22, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ExplorerControls, Version=3.1.0.23500, Culture=neutral, PublicKeyToken=11d92dc49b2bee68, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExplorerControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Excel, Version=1.4.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core, Version=2.2.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Interop.Microsoft.Office.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.VBIDE, Version=5.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Interop.VBIDE.dll</HintPath>
+    </Reference>
+    <Reference Include="IPAddressControlLib, Version=1.0.2316.25173, Culture=neutral, PublicKeyToken=0c70f2ee404bdebd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IPAddressControlLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="nunit.framework, Version=2.2.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RoundButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RoundButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=2.1.0.2, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=2.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI, Version=1.2.1.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WeifenLuo.WinFormsUI.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.resources, Version=1.2.1.0, Culture=zh-CN">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WeifenLuo.WinFormsUI.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="XPExplorerBar, Version=3.3.0.0, Culture=neutral, PublicKeyToken=26272737b5f33015, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\XPExplorerBar.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\HostGroupManage\Group.cs" />
+    <Compile Include="BackgroundManage\HostGroupManage\InputGroupTest.cs" />
+    <Compile Include="BackgroundManage\HostGroupManage\InsertGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\HostGroupManage\InsertGroupForm.designer.cs">
+      <DependentUpon>InsertGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\HostGroupManage\UpdateGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\HostGroupManage\UpdateGroupForm.designer.cs">
+      <DependentUpon>UpdateGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\HostManage\Host.cs" />
+    <Compile Include="BackgroundManage\HostManage\InsertHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\HostManage\InsertHostForm.designer.cs">
+      <DependentUpon>InsertHostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\HostManage\UpdateHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\HostManage\UpdateHostForm.designer.cs">
+      <DependentUpon>UpdateHostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\ProcessList\Error.cs" />
+    <Compile Include="BackgroundManage\ProcessList\InsertProcessListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\ProcessList\InsertProcessListForm.designer.cs">
+      <DependentUpon>InsertProcessListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\ProcessList\UpdateProcessListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\ProcessList\UpdateProcessListForm.designer.cs">
+      <DependentUpon>UpdateProcessListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\TestVerify.cs" />
+    <Compile Include="BackgroundManage\UserManage\InsertUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\UserManage\InsertUserForm.designer.cs">
+      <DependentUpon>InsertUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\UserManage\Test.cs" />
+    <Compile Include="BackgroundManage\UserManage\UpdateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\UserManage\UpdateUserForm.designer.cs">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\UserManage\User.cs" />
+    <Compile Include="BackgroundManage\UserManage\UserFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundManage\UserManage\UserFormBase.designer.cs">
+      <DependentUpon>UserFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundManage\Util.cs" />
+    <Compile Include="Components\AddGroupState\AddGroupGroupNameAlreadyExistState.cs" />
+    <Compile Include="Components\AddGroupState\AddGroupNoLogInState.cs" />
+    <Compile Include="Components\AddGroupState\AddGroupStateManager.cs" />
+    <Compile Include="Components\AddGroupState\AddGroupSuccessState.cs" />
+    <Compile Include="Components\AddGroupState\AddGroupUnKnownFailureState.cs" />
+    <Compile Include="Components\AddHostState\AddHostHostIPAlreadyExistState.cs" />
+    <Compile Include="Components\AddHostState\AddHostHostNameAlreadyExistState.cs" />
+    <Compile Include="Components\AddHostState\AddHostHostUserNameOrPwdErrorState.cs" />
+    <Compile Include="Components\AddHostState\AddHostNoLogInState.cs" />
+    <Compile Include="Components\AddHostState\AddHostStateManager.cs" />
+    <Compile Include="Components\AddHostState\AddHostSuccessState.cs" />
+    <Compile Include="Components\AddHostState\AddHostUnKnownFailureState.cs" />
+    <Compile Include="Components\AddOperationInfoState\AddOperationInfoStateManager.cs" />
+    <Compile Include="Components\AddOperationInfoState\AddOperationInfoStateNoLogInState.cs" />
+    <Compile Include="Components\AddOperationInfoState\AddOperationInfoStateSuccessState.cs" />
+    <Compile Include="Components\AddOperationInfoState\AddOperationInfoStateUnKnownFailureState.cs" />
+    <Compile Include="Components\AddOsTypeInfoState\AddOsTypeInfoNoLogInState.cs" />
+    <Compile Include="Components\AddOsTypeInfoState\AddOsTypeInfoStateManager.cs" />
+    <Compile Include="Components\AddOsTypeInfoState\AddOsTypeInfoSuccessState.cs" />
+    <Compile Include="Components\AddOsTypeInfoState\AddOsTypeInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\AddUserState\AddUserNoLoginState.cs" />
+    <Compile Include="Components\AddUserState\AddUserStateManager.cs" />
+    <Compile Include="Components\AddUserState\AddUserSuccessState.cs" />
+    <Compile Include="Components\AddUserState\AddUserUnknownFailureState.cs" />
+    <Compile Include="Components\AddUserState\AddUserUserNameAlreadyExist.cs" />
+    <Compile Include="Components\BatchExecuteCommandState\BatchExecuteCommandLoginHostErrorState.cs" />
+    <Compile Include="Components\BatchExecuteCommandState\BatchExecuteCommandNoLoginState.cs" />
+    <Compile Include="Components\BatchExecuteCommandState\BatchExecuteCommandStateManager.cs" />
+    <Compile Include="Components\BatchExecuteCommandState\BatchExecuteCommandSuccessState.cs" />
+    <Compile Include="Components\BatchExecuteCommandState\BatchExecuteCommandUnknownFailureState.cs" />
+    <Compile Include="Components\BatchUploadFileState\BatchUploadFileLoginHostErrorState.cs" />
+    <Compile Include="Components\BatchUploadFileState\BatchUploadFileNoLoginState.cs" />
+    <Compile Include="Components\BatchUploadFileState\BatchUploadFileStateManager.cs" />
+    <Compile Include="Components\BatchUploadFileState\BatchUploadFileSuccessState.cs" />
+    <Compile Include="Components\BatchUploadFileState\BatchUploadFileUnknownFailureState.cs" />
+    <Compile Include="Components\ConnectionStateManager.cs" />
+    <Compile Include="Components\DataGridViewPrinter.cs" />
+    <Compile Include="Components\DataLayer.cs" />
+    <Compile Include="Components\DataLayerReturnValueAfterAdvice.cs" />
+    <Compile Include="Components\DataProtection.cs" />
+    <Compile Include="Components\DataGridViewProgressCell .cs" />
+    <Compile Include="Components\DataGridViewProgressColumn.cs" />
+    <Compile Include="Components\DeleteGroupByGroupIdState\DeleteGroupByGroupIdGroupISRefNoDeleteState.cs" />
+    <Compile Include="Components\DeleteGroupByGroupIdState\DeleteGroupByGroupIdNoLogInState.cs" />
+    <Compile Include="Components\DeleteGroupByGroupIdState\DeleteGroupByGroupIdStateManager.cs" />
+    <Compile Include="Components\DeleteGroupByGroupIdState\DeleteGroupByGroupIdSuccessState.cs" />
+    <Compile Include="Components\DeleteGroupByGroupIdState\DeleteGroupByGroupIdUnKnownFailureState.cs" />
+    <Compile Include="Components\DeleteHostByHostIdState\DeleteHostByHostIdNoLogInState.cs" />
+    <Compile Include="Components\DeleteHostByHostIdState\DeleteHostByHostIdStateManager.cs" />
+    <Compile Include="Components\DeleteHostByHostIdState\DeleteHostByHostIdSuccessState.cs" />
+    <Compile Include="Components\DeleteHostByHostIdState\DeleteHostByHostIdUnKnownFailuregInState.cs" />
+    <Compile Include="Components\DeleteOperationInfoByOperationIdState\DeleteOperationInfoByOperationIdStateManager.cs" />
+    <Compile Include="Components\DeleteOperationInfoByOperationIdState\DeleteOperationInfoByOperationIdStateNoLogInState.cs" />
+    <Compile Include="Components\DeleteOperationInfoByOperationIdState\DeleteOperationInfoByOperationIdStateSuccessState.cs" />
+    <Compile Include="Components\DeleteOperationInfoByOperationIdState\DeleteOperationInfoByOperationIdStateUnKnownFailureState.cs" />
+    <Compile Include="Components\DeleteOsTypeInfoByOsTypeIdState\DeleteOsTypeInfoByOsTypeIdNoLogInState.cs" />
+    <Compile Include="Components\DeleteOsTypeInfoByOsTypeIdState\DeleteOsTypeInfoByOsTypeIdStateManager.cs" />
+    <Compile Include="Components\DeleteOsTypeInfoByOsTypeIdState\DeleteOsTypeInfoByOsTypeIdSuccessState.cs" />
+    <Compile Include="Components\DeleteOsTypeInfoByOsTypeIdState\DeleteOsTypeInfoByOsTypeIdUnKnownFailureState.cs" />
+    <Compile Include="Components\DeleteUserByUserIdState\DeleteUserByUserIdNoLogInState.cs" />
+    <Compile Include="Components\DeleteUserByUserIdState\DeleteUserByUserIdStateManager.cs" />
+    <Compile Include="Components\DeleteUserByUserIdState\DeleteUserByUserIdSuccessState.cs" />
+    <Compile Include="Components\DeleteUserByUserIdState\DeleteUserByUserIdUnKnownFailureState.cs" />
+    <Compile Include="Components\ExportExcel.cs" />
+    <Compile Include="Components\GetAllDataInfoStandardState\GetAllDataInfoStandardNoLogInState.cs" />
+    <Compile Include="Components\GetAllDataInfoStandardState\GetAllDataInfoStandardStateManager.cs" />
+    <Compile Include="Components\GetAllDataInfoStandardState\GetAllDataInfoStandardSuccessState.cs" />
+    <Compile Include="Components\GetAllDataInfoStandardState\GetAllDataInfoStandardUnKnownFailureState.cs" />
+    <Compile Include="Components\GetAllGroupInfoStates\GetAllGroupInfoNoLogInState.cs" />
+    <Compile Include="Components\GetAllGroupInfoStates\GetAllGroupInfoStateManager.cs" />
+    <Compile Include="Components\GetAllGroupInfoStates\GetAllGroupInfoSuccessState.cs" />
+    <Compile Include="Components\GetAllGroupInfoStates\GetAllGroupInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\GetAllHostInfoState\GetAllHostInfoNoLogInState.cs" />
+    <Compile Include="Components\GetAllHostInfoState\GetAllHostInfoStateManager.cs" />
+    <Compile Include="Components\GetAllHostInfoState\GetAllHostInfoSuccessState.cs" />
+    <Compile Include="Components\GetAllHostInfoState\GetAllHostInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\GetAllLogInfoState\GetAllLogInfoNoLoginState.cs" />
+    <Compile Include="Components\GetAllLogInfoState\GetAllLogInfoStateManager.cs" />
+    <Compile Include="Components\GetAllLogInfoState\GetAllLogInfoSucessState.cs" />
+    <Compile Include="Components\GetAllLogInfoState\GetAllLogInfoUnknownFailureState.cs" />
+    <Compile Include="Components\GetAllOperationInfoState\GetAllOperationInfoNoLogInState.cs" />
+    <Compile Include="Components\GetAllOperationInfoState\GetAllOperationInfoStateManager.cs" />
+    <Compile Include="Components\GetAllOperationInfoState\GetAllOperationInfoSuccessState.cs" />
+    <Compile Include="Components\GetAllOperationInfoState\GetAllOperationInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\GetAllOsTypeInfoState\GetAllOsTypeInfoNoLogInState.cs" />
+    <Compile Include="Components\GetAllOsTypeInfoState\GetAllOsTypeInfoStateManager.cs" />
+    <Compile Include="Components\GetAllOsTypeInfoState\GetAllOsTypeInfoSuccessState.cs" />
+    <Compile Include="Components\GetAllOsTypeInfoState\GetAllOsTypeInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\GetAllRoleInfo\GetAllRoleInfoNoLogInState.cs" />
+    <Compile Include="Components\GetAllRoleInfo\GetAllRoleInfoStateManager.cs" />
+    <Compile Include="Components\GetAllRoleInfo\GetAllRoleInfoSuccessState.cs" />
+    <Compile Include="Components\GetAllRoleInfo\GetAllRoleInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\GetAllSystemInfoState\GetAllSystemInfoNoLogInState.cs" />
+    <Compile Include="Components\GetAllSystemInfoState\GetAllSystemInfoStateManager.cs" />
+    <Compile Include="Components\GetAllSystemInfoState\GetAllSystemInfoSuccessState.cs" />
+    <Compile Include="Components\GetAllSystemInfoState\GetAllSystemInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\GetAllUserInfoState\GetAllUserInfoNoLoginState.cs" />
+    <Compile Include="Components\GetAllUserInfoState\GetAllUserInfoStateManager.cs" />
+    <Compile Include="Components\GetAllUserInfoState\GetAllUserInfoSuccessState.cs" />
+    <Compile Include="Components\GetAllUserInfoState\GetAllUserInfoUnknownFailureState.cs" />
+    <Compile Include="Components\GetLoadPicByHostIpState\GetLoadPicByHostIpIOExceptionState.cs" />
+    <Compile Include="Components\GetLoadPicByHostIpState\GetLoadPicByHostIpNoLogInState.cs" />
+    <Compile Include="Components\GetLoadPicByHostIpState\GetLoadPicByHostIpPicNotFountState.cs" />
+    <Compile Include="Components\GetLoadPicByHostIpState\GetLoadPicByHostIpStateManager.cs" />
+    <Compile Include="Components\GetLoadPicByHostIpState\GetLoadPicByHostIpSuccessState.cs" />
+    <Compile Include="Components\GetLoadPicByHostIpState\GetLoadPicByHostIpUnKnownFailureState.cs" />
+    <Compile Include="Components\GetOperationById\GetOperationByIdNoLoginState.cs" />
+    <Compile Include="Components\GetOperationById\GetOperationByIdStateManager.cs" />
+    <Compile Include="Components\GetOperationById\GetOperationByIdSuccessState.cs" />
+    <Compile Include="Components\GetOperationById\GetOperationByIdUnknownFailureState.cs" />
+    <Compile Include="Components\IConnectionStateManager.cs" />
+    <Compile Include="Components\IDataLayer.cs" />
+    <Compile Include="Components\IServiceProfferer.cs" />
+    <Compile Include="Components\IState.cs" />
+    <Compile Include="Components\IStateManager.cs" />
+    <Compile Include="Components\LogError.cs" />
+    <Compile Include="Components\LoginState\LoginPasswordUnfitState.cs" />
+    <Compile Include="Components\LoginState\LoginStateManager.cs" />
+    <Compile Include="Components\LoginState\LoginSucessState.cs" />
+    <Compile Include="Components\LoginState\LoginUnknownFailureState.cs" />
+    <Compile Include="Components\LoginState\LoginUserNameUnknownState.cs" />
+    <Compile Include="Components\LogoutState\LogoutNoLogInState.cs" />
+    <Compile Include="Components\LogoutState\LogoutStateManager.cs" />
+    <Compile Include="Components\LogoutState\LogoutSuccessState.cs" />
+    <Compile Include="Components\LogoutState\LogoutUnKnownFailureState.cs" />
+    <Compile Include="Components\ModifyGroupInfState\ModifyGroupInfNoLogINState.cs" />
+    <Compile Include="Components\ModifyGroupInfState\ModifyGroupInfStateManager.cs" />
+    <Compile Include="Components\ModifyGroupInfState\ModifyGroupInfSuccessState.cs" />
+    <Compile Include="Components\ModifyGroupInfState\ModifyGroupInfUnKnownFailureState.cs" />
+    <Compile Include="Components\ModifyHostInfo\ModifyHostInfoNoLogInState.cs" />
+    <Compile Include="Components\ModifyHostInfo\ModifyHostInfoStateManager.cs" />
+    <Compile Include="Components\ModifyHostInfo\ModifyHostInfoSuccessState.cs" />
+    <Compile Include="Components\ModifyHostInfo\ModifyHostInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\ModifyLogInfoState\ModifyLogInfoNoLoginState.cs" />
+    <Compile Include="Components\ModifyLogInfoState\ModifyLogInfoStateManager.cs" />
+    <Compile Include="Components\ModifyLogInfoState\ModifyLogInfoSucessState.cs" />
+    <Compile Include="Components\ModifyLogInfoState\ModifyLogInfoUnknownFailureState.cs" />
+    <Compile Include="Components\ModifyOperationInfoState\ModifyOperationInfoStateManager.cs" />
+    <Compile Include="Components\ModifyOperationInfoState\ModifyOperationInfoStateNoLogInState.cs" />
+    <Compile Include="Components\ModifyOperationInfoState\ModifyOperationInfoStateSuccessState.cs" />
+    <Compile Include="Components\ModifyOperationInfoState\ModifyOperationInfoStateUnKnownFailureState.cs" />
+    <Compile Include="Components\ModifyOsTypeInfoState\ModifyOsTypeInfoNoLogInState.cs" />
+    <Compile Include="Components\ModifyOsTypeInfoState\ModifyOsTypeInfoStateManager.cs" />
+    <Compile Include="Components\ModifyOsTypeInfoState\ModifyOsTypeInfoSuccessState.cs" />
+    <Compile Include="Components\ModifyOsTypeInfoState\ModifyOsTypeInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\ModifyUserInfoState\ModifyUserInfoNoLoginState.cs" />
+    <Compile Include="Components\ModifyUserInfoState\ModifyUserInfoOldPasswdErrorState.cs" />
+    <Compile Include="Components\ModifyUserInfoState\ModifyUserInfoStateManager.cs" />
+    <Compile Include="Components\ModifyUserInfoState\ModifyUserInfoSuccessState.cs" />
+    <Compile Include="Components\ModifyUserInfoState\ModifyUserInfoUnKnownFailureState.cs" />
+    <Compile Include="Components\PicInfo.cs" />
+    <Compile Include="Components\ServiceProfferer.cs" />
+    <Compile Include="Components\StateProcessor.cs" />
+    <Compile Include="Event\LogInfoListAdapter.cs" />
+    <Compile Include="Event\login\ILoginButtonClickHelper.cs" />
+    <Compile Include="Event\login\AbsLoginEventAdapter.cs" />
+    <Compile Include="Event\login\LoginButtonClickHelper.cs" />
+    <Compile Include="Event\login\LoginEventAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Event\login\UserNameBoxFocusHelper.cs" />
+    <Compile Include="Event\login\UserPwdTextFocusHelper.cs" />
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\HostGroupManage\InsertGroupForm.resx">
+      <DependentUpon>InsertGroupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\HostGroupManage\UpdateGroupForm.resx">
+      <DependentUpon>UpdateGroupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\HostManage\InsertHostForm.resx">
+      <DependentUpon>InsertHostForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\HostManage\UpdateHostForm.resx">
+      <DependentUpon>UpdateHostForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\ProcessList\InsertProcessListForm.resx">
+      <DependentUpon>InsertProcessListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\ProcessList\UpdateProcessListForm.resx">
+      <DependentUpon>UpdateProcessListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\UserManage\InsertUserForm.resx">
+      <DependentUpon>InsertUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\UserManage\UpdateUserForm.resx">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundManage\UserManage\UserFormBase.resx">
+      <DependentUpon>UserFormBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spalsh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Spalsh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\CMDTOHostForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CMDTOHostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\DailyInfo.resx">
+      <DependentUpon>DailyInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\DummyFileUpLoadViewList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyFileUpLoadViewList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\DummyOutputWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyOutputWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\ExplainInfo.resx">
+      <DependentUpon>ExplainInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\GroupInfo.resx">
+      <DependentUpon>GroupInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\HostInfo.resx">
+      <DependentUpon>HostInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyLogDailyInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyLogDailyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyModifyExplain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyModifyExplain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyModifyGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyModifyGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyModifyHost.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyModifyHost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyNewExplain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyNewExplain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyNewGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyNewGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyNewHost.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyNewHost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyOperationInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyOperationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MySystemInfo.resx">
+      <DependentUpon>MySystemInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\MyUploadInfo.resx">
+      <DependentUpon>MyUploadInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\NewUser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\SystemInfo.resx">
+      <DependentUpon>SystemInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\UpdateUser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\UploadInfo.resx">
+      <DependentUpon>UploadInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\UserBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="x\UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Spalsh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spalsh.Designer.cs">
+      <DependentUpon>Spalsh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\TestDataLayer.cs" />
+    <Compile Include="Web References\SysguardWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="x\CMDTOHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\CMDTOHostForm.Designer.cs">
+      <DependentUpon>CMDTOHostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\DailyInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="x\DailyInfo.designer.cs">
+      <DependentUpon>DailyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\DummyFileUpLoadViewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\DummyFileUpLoadViewList.Designer.cs">
+      <DependentUpon>DummyFileUpLoadViewList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\DummyOutputWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\DummyOutputWindow.Designer.cs">
+      <DependentUpon>DummyOutputWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\ExplainInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="x\ExplainInfo.designer.cs">
+      <DependentUpon>ExplainInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\GroupInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="x\GroupInfo.designer.cs">
+      <DependentUpon>GroupInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\HostInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="x\HostInfo.designer.cs">
+      <DependentUpon>HostInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MeUpLoadInfo.cs" />
+    <Compile Include="x\MyLogDailyInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyLogDailyInfo.Designer.cs">
+      <DependentUpon>MyLogDailyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyModifyExplain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyModifyExplain.Designer.cs">
+      <DependentUpon>MyModifyExplain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyModifyGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyModifyGroup.Designer.cs">
+      <DependentUpon>MyModifyGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyModifyHost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyModifyHost.Designer.cs">
+      <DependentUpon>MyModifyHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyNewExplain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyNewExplain.Designer.cs">
+      <DependentUpon>MyNewExplain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyNewGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyNewGroup.Designer.cs">
+      <DependentUpon>MyNewGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyNewHost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyNewHost.Designer.cs">
+      <DependentUpon>MyNewHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyOperationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyOperationInfo.Designer.cs">
+      <DependentUpon>MyOperationInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MySystemInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MySystemInfo.designer.cs">
+      <DependentUpon>MySystemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\MyUploadInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\MyUploadInfo.designer.cs">
+      <DependentUpon>MyUploadInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\NewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\NewUser.Designer.cs">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\NoLoginCloseMainToLogin.cs" />
+    <Compile Include="x\SystemInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="x\SystemInfo.Designer.cs">
+      <DependentUpon>SystemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\UpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\UpdateUser.Designer.cs">
+      <DependentUpon>UpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\UploadInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="x\UploadInfo.Designer.cs">
+      <DependentUpon>UploadInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\UserBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="x\UserBase.Designer.cs">
+      <DependentUpon>UserBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="x\UserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="x\UserInfo.Designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ToolSearch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printpreview.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_stop.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.gif" />
+    <None Include="sysguard_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Executable.png" />
+    <Content Include="livedoor.ico" />
+    <None Include="Resources\Spalsh.bmp" />
+    <None Include="Resources\aboutbox.bmp" />
+    <None Include="Resources\OutputWindow.gif" />
+    <None Include="Resources\OutputWindow.bmp" />
+    <None Include="Resources\list.gif" />
+    <None Include="Resources\OutputWindow.ico" />
+    <None Include="Resources\m_toolStripButtonSuivant.Image.png" />
+    <None Include="Resources\m_toolStripButtonReload.Image.png" />
+    <None Include="Resources\m_toolStripButtonPrecedent.Image.png" />
+    <None Include="Resources\m_toolStripButtonHome.Image.png" />
+    <None Include="Resources\m_toolStripButtonParent.Image.png" />
+    <None Include="sphere.png" />
+    <None Include="sysguardOffline.ico" />
+    <None Include="logou.gif" />
+    <None Include="app.config" />
+    <None Include="Resources\Xbutton25.jpg" />
+    <None Include="Resources\Xbutton1.jpg" />
+    <None Include="Resources\LightOn.png" />
+    <None Include="Resources\user.gif" />
+    <None Include="Web References\SysguardWS\AddGroupResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\AddHostResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\AddOperationInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\AddOsTypeInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\AddUserResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\BatchExecuteCommandResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\BatchUploadFileResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\DeleteGroupByGroupIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\DeleteHostByHostIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\DeleteOperationInfoByOperationIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\DeleteOsTypeInfoByOsTypeIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\DeleteUserByUserIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllDataInfoStandardResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllGroupInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllHostInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllLogInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllOperationResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllOsTypeInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllRoleInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllSystemInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetAllUserInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetLoadPicByHostIpResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\GetOperationByIdResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\LoginResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\LogoutResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\ModifyGroupInfResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\ModifyHostInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\ModifyLogInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\ModifyOperationInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\ModifyOsTypeInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\ModifyUserInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SysguardWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SysguardWS\sysguard.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.5.1.116:8080/axis2/services/sysguard%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SysguardWS\</RelPath>
+      <UpdateFromURL>http://10.5.1.116:8080/axis2/services/sysguard%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>sysguard_SysguardWS_sysguard</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
