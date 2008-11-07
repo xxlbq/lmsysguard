@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/test"/>
+	<classpathentry kind="src" path="src/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/lib/ws-commons-java5-1.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/lib/ws-commons-util-1.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/dist/xmlrpc-client-3.0rc1.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/dist/xmlrpc-client-3.0rc1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/dist/xmlrpc-common-3.0rc1.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/dist/xmlrpc-common-3.0rc1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/dist/xmlrpc-server-3.0rc1.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/xmlrpc-3.0rc1-bin/xmlrpc-3.0rc1/dist/xmlrpc-server-3.0rc1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/apache-tomcat-5.5.17/common/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_IDE/c3p0-0.9.1-pre9.bin/c3p0-0.9.1-pre9/lib/c3p0-0.9.1-pre9.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-3.1.13-bin.jar"/>
+	<classpathentry kind="lib" path="E:/Projects/Taylor/taylor/WEB-INF/lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="lib/ibatis-common-2.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

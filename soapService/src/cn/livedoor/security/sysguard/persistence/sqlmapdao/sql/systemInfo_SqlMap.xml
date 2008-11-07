@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="systeminfo">
+
+    <!--
+     ********************************************************************************
+     ******************************   add by yuzs.     ****************************** 
+     ********************************************************************************
+  -->           
+  <select id="getSystemInfo" resultClass="cn.livedoor.security.sysguard.services.SystemInfo"> 
+    <![CDATA[       
+		SELECT host_id as 'hostId',
+			host_ip as 'hostIp',
+			max(t.CPU) as 'cpu',
+			max(t.LOAD) as 'load',
+			max(t.MEMORY) as 'memory', 
+			max(t.responseTime) as 'responseTime',
+			max(t.DISK)  as 'disk' 
+		FROM 	(SELECT h.host_id, h.host_ip,
+			(case info.type_id when 1 then info.value1 else 0 end) as 'CPU',
+			(case info.type_id when 2 then info.value1 else 0 end) as 'LOAD',
+			(case info.type_id when 3 then info.value1 else 0 end) as 'MEMORY', 
+			(case info.type_id when 4 then info.value1 else 0 end) as 'responseTime',
+			(case info.type_id when 5 then info.value1 else 0 end) as 'DISK' 
+	 FROM 	host h join data_info info on h.host_id=info.host_id ) as t 
+	 GROUP BY 	host_id,host_ip    
+   	  ]]> 
+  </select>
+    
+</sqlMap>

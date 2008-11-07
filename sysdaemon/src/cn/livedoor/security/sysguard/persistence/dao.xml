@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE daoConfig
+    PUBLIC "-//ibatis.apache.org//DTD DAO Configuration 2.0//EN"
+    "http://ibatis.apache.org/dtd/dao-2.dtd">
+
+<daoConfig>
+
+	<context>
+
+		<transactionManager type="SQLMAP">
+			<property name="SqlMapConfigResource"
+				value="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/sql-map-config.xml" />
+		</transactionManager>
+
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.ApplogDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.ApplogDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.DataInfoDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.DataInfoDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.DataInfoTypeDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.DataInfoTypeDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.HostDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.HostDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.HostGroupDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.HostGroupDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.OperationDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.OperationDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.OsTypeDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.OsTypeDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.RoleDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.RoleDAOImpl" />
+		<dao
+			interface="cn.livedoor.security.sysguard.persistence.sqlmapdao.UserDAO"
+			implementation="cn.livedoor.security.sysguard.persistence.sqlmapdao.UserDAOImpl" />
+	</context>
+
+</daoConfig>

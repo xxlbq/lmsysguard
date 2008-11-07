@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--<!DOCTYPE project [
+        <!ENTITY properties SYSTEM "security.xml">
+]-->
+<!-- ****************************************************************** -->
+<!-- Batch file for the sysguard(data collect) project                  -->
+<!--                                                                    -->
+<!-- version: $Id: build.xml,v 1.1 2006/10/24 03:06:33 wangbin Exp $-->
+<!-- Copyright (c) 2006-2008 Four Meisters System Consulting, Inc.      -->
+<!--                                               All rights reserved. -->
+<!--                                                                    -->
+<!-- ****************************************************************** -->
+
+<project name="DataCollector" default="jar" basedir=".">
+
+	<!-- Set global properties for this build -->
+	<property environment="env" />
+	<property file="build.properties" />
+	<path id="classpath">
+		<pathelement location="${classes.dir}" />
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- ================================= 
+          target: all              
+         ================================= -->
+	<target name="all" depends="jar" description="--> description">
+
+	</target>
+
+	<!-- ================================= 
+          target: javac              
+         ================================= -->
+	<target name="javac" depends="init" description="--> description">
+		<javac destdir="${classes.dir}">
+			<src path="${src.dir}" />
+			<src path="${contribut.dir}" />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<!-- ================================= 
+          target: jar              
+         ================================= -->
+	<target name="jar" depends="javac" description="--> description">
+		<jar destfile="${dest.dir}/${dataclt.jar}" basedir="${classes.dir}">
+			<manifest>
+				<attribute name="Manifest-Version" value="1.0" />
+				<attribute name="Class-Path" value=". 
+					../lib/ibatis-common-2.jar 
+					../lib/ibatis-dao-2.jar 
+					../lib/ibatis-sqlmap-2.jar 
+					../lib/jdom.jar 
+					../lib/jsch-0.1.29.jar 
+					../lib/log4j-1.2.9.jar 
+					../lib/mysql-connector-java-3.1.13-bin.jar 
+					../lib/rrd4j-2.0.1.jar" />
+				<attribute name="Main-Class" value="com.live.entry.TriggerMe" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- ================================= 
+          target: java1              
+         ================================= -->
+	<target name="java1" depends="jar" description="--> description">
+		<java jar="${dest.dir}/${dataclt.jar}" fork="true" />
+	</target>
+
+	<!-- ================================= 
+          target: java2              
+         ================================= -->
+	<target name="java2" depends="jar" description="--> description">
+		<java classname="com.live.entry.TriggerMe" fork="true">
+			<classpath refid="classpath" />
+		</java>
+	</target>
+
+
+	<!-- ================================= 
+          target: init              
+         ================================= -->
+	<target name="init" depends="" description="--> description">
+		<mkdir dir="${dest.dir}" />
+	</target>
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+	<target name="clean" depends="" description="--> description">
+		<delete>
+			<fileset dir="${dest.dir}" />
+		</delete>
+	</target>
+
+	<!-- ================================= 
+          target: usage              
+         ================================= -->
+	<target name="usage">
+		<echo message="usage:" />
+		<echo message=" build.bat [target]" />
+		<echo message="" />
+		<echo message="try 'build.bat -projecthelp' for more information." />
+		<echo message="" />
+	</target>
+
+
+</project>

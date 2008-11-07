@@ -1,0 +1,554 @@
+<wsdl:definitions xmlns:tns="http://www.livedoor.cn/sysguard/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.livedoor.cn/sysguard/"><wsdl:types><xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.livedoor.cn/sysguard/">
+<xsd:element name="LoginRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="username" type="xsd:string" />
+<xsd:element name="password" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LoginResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="userInfo" type="tns:UserInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllSystemInfoRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllSystemInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allSysInfo" type="tns:SystemInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="SystemInfo">
+<xsd:sequence>
+<xsd:element name="hostIp" type="xsd:string" />
+<xsd:element name="cpu" type="xsd:string" />
+<xsd:element name="load" type="xsd:string" />
+<xsd:element name="memory" type="xsd:string" />
+<xsd:element name="responseTime" type="xsd:string" />
+<xsd:element name="disk" type="xsd:string" />
+<xsd:element name="hostId" type="xsd:int" />
+<xsd:element name="cpuStatus" type="xsd:int" />
+<xsd:element name="loadStatus" type="xsd:int" />
+<xsd:element name="memoryStatus" type="xsd:int" />
+<xsd:element name="responseTimeStatus" type="xsd:int" />
+<xsd:element name="diskStatus" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="GetLoadPicByHostIpRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="hostIp" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetLoadPicByHostIpResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="dayLoadAveragePic" type="xsd:hexBinary" />
+<xsd:element name="monthLoadAveragePic" type="xsd:hexBinary" />
+<xsd:element name="yearLoadAveragePic" type="xsd:hexBinary" />
+<xsd:element name="returnCode" type="xsd:int" />
+<xsd:element name="hostIp" type="xsd:string" />
+<xsd:element name="fileType" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllLogInfoRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllLogInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allLogInfo" type="tns:LogInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="LogInfo">
+<xsd:sequence>
+<xsd:element name="applogId" type="xsd:long" />
+<xsd:element minOccurs="0" name="className" type="xsd:string" />
+<xsd:element name="hostId" type="xsd:int" />
+<xsd:element minOccurs="0" name="inputTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="level" type="xsd:string" />
+<xsd:element minOccurs="0" name="logContent" type="xsd:string" />
+<xsd:element minOccurs="0" name="logLine" type="xsd:string" />
+<xsd:element name="logStatus" type="xsd:int" />
+<xsd:element minOccurs="0" name="logTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="solveDesc" type="xsd:string" />
+<xsd:element minOccurs="0" name="solveResult" type="xsd:string" />
+<xsd:element minOccurs="0" name="solveTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="userId" type="xsd:int" />
+<xsd:element minOccurs="0" name="threadName" type="xsd:string" />
+<xsd:element minOccurs="0" name="uptime" type="xsd:int" />
+<xsd:element name="hostIp" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ModifyLogInfoRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="logInfo" type="tns:LogInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ModifyLogInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllUserInfoRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllUserInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allUserInfo" type="tns:UserInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="UserInfo">
+<xsd:sequence>
+<xsd:element name="name" type="xsd:string" />
+<xsd:element minOccurs="0" name="description" type="xsd:string" />
+<xsd:element name="roleId" type="xsd:int" />
+<xsd:element minOccurs="0" name="inputTime" type="xsd:date" />
+<xsd:element name="realName" type="xsd:string" />
+<xsd:element minOccurs="0" name="msn" type="xsd:string" />
+<xsd:element minOccurs="0" name="skype" type="xsd:string" />
+<xsd:element minOccurs="0" name="lastLoginTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="online" type="xsd:byte" />
+<xsd:element name="validate" type="xsd:byte" />
+<xsd:element minOccurs="0" name="updateTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="mail" type="xsd:string" />
+<xsd:element name="passwd" type="xsd:string" />
+<xsd:element name="userId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ModifyUserInfoRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="editUser" type="tns:UserInfo" />
+<xsd:element name="oldPassword" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ModifyUserInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddUserRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="user" type="tns:UserInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddUserResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteUserByUserIdRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="userId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteUserByUserIdResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllHostInfoRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllHostInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allHostInfo" type="tns:HostInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="HostInfo">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="description" type="xsd:string" />
+<xsd:element name="diskpartition" type="xsd:string" />
+<xsd:element name="groupId" type="xsd:int" />
+<xsd:element name="hostName" type="xsd:string" />
+<xsd:element minOccurs="0" name="inputTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="updateTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="uptime" type="xsd:string" />
+<xsd:element name="validate" type="xsd:byte" />
+<xsd:element name="hostIp" type="xsd:string" />
+<xsd:element name="hostId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ModifyHostInfoRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="hostInfo" type="tns:HostInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ModifyHostInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddHostRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="hostInfo" type="tns:HostInfo" />
+<xsd:element name="loginName" type="xsd:string" />
+<xsd:element name="loginPwd" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddHostResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteHostByHostIdRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="hostId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteHostByHostIdResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllGroupInfoRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllGroupInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allGroupInfo" type="tns:GroupInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="GroupInfo">
+<xsd:sequence>
+<xsd:element name="groupId" type="xsd:int" />
+<xsd:element name="groupName" type="xsd:string" />
+<xsd:element name="osId" type="xsd:int" />
+<xsd:element minOccurs="0" name="description" type="xsd:string" />
+<xsd:element minOccurs="0" name="inputTime" type="xsd:date" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ModifyGroupInfRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="groupInfo" type="tns:GroupInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ModifyGroupInfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddGroupRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="groupInf" type="tns:GroupInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddGroupResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteGroupByGroupIdRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="groupId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteGroupByGroupIdResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="OperationInfo">
+<xsd:sequence>
+<xsd:element name="userId" type="xsd:int" />
+<xsd:element name="operId" type="xsd:int" />
+<xsd:element minOccurs="0" name="inputTime" type="xsd:date" />
+<xsd:element name="errorDesp" type="xsd:string" />
+<xsd:element name="operContent" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ModifyOperationInfoRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="operationInfo" type="tns:OperationInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ModifyOperationInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddOperationInfoRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="operationInfo" type="tns:OperationInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddOperationInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteOperationInfoByOperationIdRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="operationId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteOperationInfoByOperationIdResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BatchUploadFileRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="hostIds" type="xsd:int" />
+<xsd:element name="path" type="xsd:string" />
+<xsd:element name="fileName" type="xsd:string" />
+<xsd:element minOccurs="0" name="file" type="xsd:hexBinary" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BatchUploadFileResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="uploadResults" type="xsd:string" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BatchExecuteCommandRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="command" type="xsd:string" />
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="hostIds" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BatchExecuteCommandResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="executeResults" type="xsd:string" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LogoutRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="userName" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LogoutResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="RoleInfo">
+<xsd:sequence>
+<xsd:element name="roleId" type="xsd:int" />
+<xsd:element name="name" type="xsd:string" />
+<xsd:element minOccurs="0" name="inputTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="description" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="GetAllDataInfoStandardRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllDataInfoStandardResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allStandard" type="tns:DataInfoStandard" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="DataInfoStandard">
+<xsd:sequence>
+<xsd:element name="errorValue" type="xsd:int" />
+<xsd:element name="warnValue" type="xsd:int" />
+<xsd:element name="typeName" type="xsd:string" />
+<xsd:element name="typeId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="GetAllOsTypeInfoRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllOsTypeInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allOsType" type="tns:OsTypeInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="OsTypeInfo">
+<xsd:sequence>
+<xsd:element name="osId" type="xsd:int" />
+<xsd:element name="osName" type="xsd:string" />
+<xsd:element minOccurs="0" name="inputTime" type="xsd:date" />
+<xsd:element minOccurs="0" name="description" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ModifyOsTypeInfoRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="osType" type="tns:OsTypeInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ModifyOsTypeInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddOsTypeInfoRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="osType" type="tns:OsTypeInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AddOsTypeInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteOsTypeInfoByOsTypeIdRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="osTypeId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DeleteOsTypeInfoByOsTypeIdResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllOperationRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllOperationResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allOperations" type="tns:OperationInfo" />
+<xsd:element name="returnCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllRoleInfoRequest">
+<xsd:complexType>
+<xsd:sequence />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetAllRoleInfoResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="allRole" type="tns:RoleInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetOperationByIdRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="operId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetOperationByIdResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="returnCode" type="xsd:int" />
+<xsd:element name="operationInfo" type="tns:OperationInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema></wsdl:types><wsdl:message name="GetLoadPicByHostIpRequest"><wsdl:part name="part1" element="tns:GetLoadPicByHostIpRequest" /></wsdl:message><wsdl:message name="GetLoadPicByHostIpResponse"><wsdl:part name="part1" element="tns:GetLoadPicByHostIpResponse" /></wsdl:message><wsdl:message name="AddGroupRequest"><wsdl:part name="part1" element="tns:AddGroupRequest" /></wsdl:message><wsdl:message name="AddGroupResponse"><wsdl:part name="part1" element="tns:AddGroupResponse" /></wsdl:message><wsdl:message name="GetAllOsTypeInfoRequest"><wsdl:part name="part1" element="tns:GetAllOsTypeInfoRequest" /></wsdl:message><wsdl:message name="GetAllOsTypeInfoResponse"><wsdl:part name="part1" element="tns:GetAllOsTypeInfoResponse" /></wsdl:message><wsdl:message name="DeleteOperationInfoByOperationIdRequest"><wsdl:part name="part1" element="tns:DeleteOperationInfoByOperationIdRequest" /></wsdl:message><wsdl:message name="DeleteOperationInfoByOperationIdResponse"><wsdl:part name="part1" element="tns:DeleteOperationInfoByOperationIdResponse" /></wsdl:message><wsdl:message name="BatchExecuteCommandRequest"><wsdl:part name="part1" element="tns:BatchExecuteCommandRequest" /></wsdl:message><wsdl:message name="BatchExecuteCommandResponse"><wsdl:part name="part1" element="tns:BatchExecuteCommandResponse" /></wsdl:message><wsdl:message name="ModifyOperationInfoRequest"><wsdl:part name="part1" element="tns:ModifyOperationInfoRequest" /></wsdl:message><wsdl:message name="ModifyOperationInfoResponse"><wsdl:part name="part1" element="tns:ModifyOperationInfoResponse" /></wsdl:message><wsdl:message name="ModifyUserInfoRequest"><wsdl:part name="part1" element="tns:ModifyUserInfoRequest" /></wsdl:message><wsdl:message name="ModifyUserInfoResponse"><wsdl:part name="part1" element="tns:ModifyUserInfoResponse" /></wsdl:message><wsdl:message name="GetAllHostInfoRequest"><wsdl:part name="part1" element="tns:GetAllHostInfoRequest" /></wsdl:message><wsdl:message name="GetAllHostInfoResponse"><wsdl:part name="part1" element="tns:GetAllHostInfoResponse" /></wsdl:message><wsdl:message name="LogoutRequest"><wsdl:part name="part1" element="tns:LogoutRequest" /></wsdl:message><wsdl:message name="LogoutResponse"><wsdl:part name="part1" element="tns:LogoutResponse" /></wsdl:message><wsdl:message name="ModifyOsTypeInfoRequest"><wsdl:part name="part1" element="tns:ModifyOsTypeInfoRequest" /></wsdl:message><wsdl:message name="ModifyOsTypeInfoResponse"><wsdl:part name="part1" element="tns:ModifyOsTypeInfoResponse" /></wsdl:message><wsdl:message name="ModifyLogInfoRequest"><wsdl:part name="part1" element="tns:ModifyLogInfoRequest" /></wsdl:message><wsdl:message name="ModifyLogInfoResponse"><wsdl:part name="part1" element="tns:ModifyLogInfoResponse" /></wsdl:message><wsdl:message name="GetAllGroupInfoRequest"><wsdl:part name="part1" element="tns:GetAllGroupInfoRequest" /></wsdl:message><wsdl:message name="GetAllGroupInfoResponse"><wsdl:part name="part1" element="tns:GetAllGroupInfoResponse" /></wsdl:message><wsdl:message name="DeleteGroupByGroupIdRequest"><wsdl:part name="part1" element="tns:DeleteGroupByGroupIdRequest" /></wsdl:message><wsdl:message name="DeleteGroupByGroupIdResponse"><wsdl:part name="part1" element="tns:DeleteGroupByGroupIdResponse" /></wsdl:message><wsdl:message name="GetAllSystemInfoRequest"><wsdl:part name="part1" element="tns:GetAllSystemInfoRequest" /></wsdl:message><wsdl:message name="GetAllSystemInfoResponse"><wsdl:part name="part1" element="tns:GetAllSystemInfoResponse" /></wsdl:message><wsdl:message name="AddOsTypeInfoRequest"><wsdl:part name="part1" element="tns:AddOsTypeInfoRequest" /></wsdl:message><wsdl:message name="AddOsTypeInfoResponse"><wsdl:part name="part1" element="tns:AddOsTypeInfoResponse" /></wsdl:message><wsdl:message name="DeleteUserByUserIdRequest"><wsdl:part name="part1" element="tns:DeleteUserByUserIdRequest" /></wsdl:message><wsdl:message name="DeleteUserByUserIdResponse"><wsdl:part name="part1" element="tns:DeleteUserByUserIdResponse" /></wsdl:message><wsdl:message name="GetAllDataInfoStandardRequest"><wsdl:part name="part1" element="tns:GetAllDataInfoStandardRequest" /></wsdl:message><wsdl:message name="GetAllDataInfoStandardResponse"><wsdl:part name="part1" element="tns:GetAllDataInfoStandardResponse" /></wsdl:message><wsdl:message name="DeleteOsTypeInfoByOsTypeIdRequest"><wsdl:part name="part1" element="tns:DeleteOsTypeInfoByOsTypeIdRequest" /></wsdl:message><wsdl:message name="DeleteOsTypeInfoByOsTypeIdResponse"><wsdl:part name="part1" element="tns:DeleteOsTypeInfoByOsTypeIdResponse" /></wsdl:message><wsdl:message name="LoginRequest"><wsdl:part name="part1" element="tns:LoginRequest" /></wsdl:message><wsdl:message name="LoginResponse"><wsdl:part name="part1" element="tns:LoginResponse" /></wsdl:message><wsdl:message name="ModifyGroupInfRequest"><wsdl:part name="part1" element="tns:ModifyGroupInfRequest" /></wsdl:message><wsdl:message name="ModifyGroupInfResponse"><wsdl:part name="part1" element="tns:ModifyGroupInfResponse" /></wsdl:message><wsdl:message name="GetAllRoleInfoRequest"><wsdl:part name="part1" element="tns:GetAllRoleInfoRequest" /></wsdl:message><wsdl:message name="GetAllRoleInfoResponse"><wsdl:part name="part1" element="tns:GetAllRoleInfoResponse" /></wsdl:message><wsdl:message name="DeleteHostByHostIdRequest"><wsdl:part name="part1" element="tns:DeleteHostByHostIdRequest" /></wsdl:message><wsdl:message name="DeleteHostByHostIdResponse"><wsdl:part name="part1" element="tns:DeleteHostByHostIdResponse" /></wsdl:message><wsdl:message name="ModifyHostInfoRequest"><wsdl:part name="part1" element="tns:ModifyHostInfoRequest" /></wsdl:message><wsdl:message name="ModifyHostInfoResponse"><wsdl:part name="part1" element="tns:ModifyHostInfoResponse" /></wsdl:message><wsdl:message name="AddUserRequest"><wsdl:part name="part1" element="tns:AddUserRequest" /></wsdl:message><wsdl:message name="AddUserResponse"><wsdl:part name="part1" element="tns:AddUserResponse" /></wsdl:message><wsdl:message name="AddOperationInfoRequest"><wsdl:part name="part1" element="tns:AddOperationInfoRequest" /></wsdl:message><wsdl:message name="AddOperationInfoResponse"><wsdl:part name="part1" element="tns:AddOperationInfoResponse" /></wsdl:message><wsdl:message name="BatchUploadFileRequest"><wsdl:part name="part1" element="tns:BatchUploadFileRequest" /></wsdl:message><wsdl:message name="BatchUploadFileResponse"><wsdl:part name="part1" element="tns:BatchUploadFileResponse" /></wsdl:message><wsdl:message name="GetOperationByIdRequest"><wsdl:part name="part1" element="tns:GetOperationByIdRequest" /></wsdl:message><wsdl:message name="GetOperationByIdResponse"><wsdl:part name="part1" element="tns:GetOperationByIdResponse" /></wsdl:message><wsdl:message name="GetAllLogInfoRequest"><wsdl:part name="part1" element="tns:GetAllLogInfoRequest" /></wsdl:message><wsdl:message name="GetAllLogInfoResponse"><wsdl:part name="part1" element="tns:GetAllLogInfoResponse" /></wsdl:message><wsdl:message name="GetAllOperationRequest"><wsdl:part name="part1" element="tns:GetAllOperationRequest" /></wsdl:message><wsdl:message name="GetAllOperationResponse"><wsdl:part name="part1" element="tns:GetAllOperationResponse" /></wsdl:message><wsdl:message name="GetAllUserInfoRequest"><wsdl:part name="part1" element="tns:GetAllUserInfoRequest" /></wsdl:message><wsdl:message name="GetAllUserInfoResponse"><wsdl:part name="part1" element="tns:GetAllUserInfoResponse" /></wsdl:message><wsdl:message name="AddHostRequest"><wsdl:part name="part1" element="tns:AddHostRequest" /></wsdl:message><wsdl:message name="AddHostResponse"><wsdl:part name="part1" element="tns:AddHostResponse" /></wsdl:message><wsdl:portType name="sysguardPortType"><wsdl:operation name="GetLoadPicByHostIp"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetLoadPicByHostIpRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetLoadPicByHostIp" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetLoadPicByHostIpResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetLoadPicByHostIpResponse" /></wsdl:operation><wsdl:operation name="AddGroup"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddGroupRequest" wsaw:Action="http://www.livedoor.cn/sysguard/AddGroup" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddGroupResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/AddGroupResponse" /></wsdl:operation><wsdl:operation name="GetAllOsTypeInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllOsTypeInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllOsTypeInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllOsTypeInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllOsTypeInfoResponse" /></wsdl:operation><wsdl:operation name="DeleteOperationInfoByOperationId"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteOperationInfoByOperationIdRequest" wsaw:Action="http://www.livedoor.cn/sysguard/DeleteOperationInfoByOperationId" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteOperationInfoByOperationIdResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/DeleteOperationInfoByOperationIdResponse" /></wsdl:operation><wsdl:operation name="BatchExecuteCommand"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:BatchExecuteCommandRequest" wsaw:Action="http://www.livedoor.cn/sysguard/BatchExecuteCommand" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:BatchExecuteCommandResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/BatchExecuteCommandResponse" /></wsdl:operation><wsdl:operation name="ModifyOperationInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyOperationInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/ModifyOperationInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyOperationInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/ModifyOperationInfoResponse" /></wsdl:operation><wsdl:operation name="ModifyUserInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyUserInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/ModifyUserInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyUserInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/ModifyUserInfoResponse" /></wsdl:operation><wsdl:operation name="GetAllHostInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllHostInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllHostInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllHostInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllHostInfoResponse" /></wsdl:operation><wsdl:operation name="Logout"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:LogoutRequest" wsaw:Action="http://www.livedoor.cn/sysguard/Logout" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:LogoutResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/LogoutResponse" /></wsdl:operation><wsdl:operation name="ModifyOsTypeInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyOsTypeInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/ModifyOsTypeInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyOsTypeInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/ModifyOsTypeInfoResponse" /></wsdl:operation><wsdl:operation name="ModifyLogInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyLogInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/ModifyLogInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyLogInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/ModifyLogInfoResponse" /></wsdl:operation><wsdl:operation name="GetAllGroupInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllGroupInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllGroupInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllGroupInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllGroupInfoResponse" /></wsdl:operation><wsdl:operation name="DeleteGroupByGroupId"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteGroupByGroupIdRequest" wsaw:Action="http://www.livedoor.cn/sysguard/DeleteGroupByGroupId" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteGroupByGroupIdResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/DeleteGroupByGroupIdResponse" /></wsdl:operation><wsdl:operation name="GetAllSystemInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllSystemInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllSystemInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllSystemInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllSystemInfoResponse" /></wsdl:operation><wsdl:operation name="AddOsTypeInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddOsTypeInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/AddOsTypeInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddOsTypeInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/AddOsTypeInfoResponse" /></wsdl:operation><wsdl:operation name="DeleteUserByUserId"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteUserByUserIdRequest" wsaw:Action="http://www.livedoor.cn/sysguard/DeleteUserByUserId" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteUserByUserIdResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/DeleteUserByUserIdResponse" /></wsdl:operation><wsdl:operation name="GetAllDataInfoStandard"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllDataInfoStandardRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllDataInfoStandard" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllDataInfoStandardResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllDataInfoStandardResponse" /></wsdl:operation><wsdl:operation name="DeleteOsTypeInfoByOsTypeId"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteOsTypeInfoByOsTypeIdRequest" wsaw:Action="http://www.livedoor.cn/sysguard/DeleteOsTypeInfoByOsTypeId" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteOsTypeInfoByOsTypeIdResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/DeleteOsTypeInfoByOsTypeIdResponse" /></wsdl:operation><wsdl:operation name="Login"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:LoginRequest" wsaw:Action="http://www.livedoor.cn/sysguard/Login" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:LoginResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/LoginResponse" /></wsdl:operation><wsdl:operation name="ModifyGroupInf"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyGroupInfRequest" wsaw:Action="http://www.livedoor.cn/sysguard/ModifyGroupInf" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyGroupInfResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/ModifyGroupInfResponse" /></wsdl:operation><wsdl:operation name="GetAllRoleInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllRoleInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllRoleInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllRoleInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllRoleInfoResponse" /></wsdl:operation><wsdl:operation name="DeleteHostByHostId"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteHostByHostIdRequest" wsaw:Action="http://www.livedoor.cn/sysguard/DeleteHostByHostId" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:DeleteHostByHostIdResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/DeleteHostByHostIdResponse" /></wsdl:operation><wsdl:operation name="ModifyHostInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyHostInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/ModifyHostInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:ModifyHostInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/ModifyHostInfoResponse" /></wsdl:operation><wsdl:operation name="AddUser"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddUserRequest" wsaw:Action="http://www.livedoor.cn/sysguard/AddUser" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddUserResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/AddUserResponse" /></wsdl:operation><wsdl:operation name="AddOperationInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddOperationInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/AddOperationInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddOperationInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/AddOperationInfoResponse" /></wsdl:operation><wsdl:operation name="BatchUploadFile"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:BatchUploadFileRequest" wsaw:Action="http://www.livedoor.cn/sysguard/BatchUploadFile" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:BatchUploadFileResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/BatchUploadFileResponse" /></wsdl:operation><wsdl:operation name="GetOperationById"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetOperationByIdRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetOperationById" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetOperationByIdResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetOperationByIdResponse" /></wsdl:operation><wsdl:operation name="GetAllLogInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllLogInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllLogInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllLogInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllLogInfoResponse" /></wsdl:operation><wsdl:operation name="GetAllOperation"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllOperationRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllOperation" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllOperationResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllOperationResponse" /></wsdl:operation><wsdl:operation name="GetAllUserInfo"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllUserInfoRequest" wsaw:Action="http://www.livedoor.cn/sysguard/GetAllUserInfo" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:GetAllUserInfoResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/GetAllUserInfoResponse" /></wsdl:operation><wsdl:operation name="AddHost"><wsdl:input xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddHostRequest" wsaw:Action="http://www.livedoor.cn/sysguard/AddHost" /><wsdl:output xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" message="tns:AddHostResponse" wsaw:Action="http://www.livedoor.cn/sysguard/sysguard/AddHostResponse" /></wsdl:operation></wsdl:portType><wsdl:binding name="sysguardSOAP11Binding" type="tns:sysguardPortType"><soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" /><wsdl:operation name="GetLoadPicByHostIp"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetLoadPicByHostIp" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddGroup"><soap:operation soapAction="http://www.livedoor.cn/sysguard/AddGroup" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllOsTypeInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllOsTypeInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteOperationInfoByOperationId"><soap:operation soapAction="http://www.livedoor.cn/sysguard/DeleteOperationInfoByOperationId" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="BatchExecuteCommand"><soap:operation soapAction="http://www.livedoor.cn/sysguard/BatchExecuteCommand" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyOperationInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/ModifyOperationInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyUserInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/ModifyUserInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllHostInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllHostInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="Logout"><soap:operation soapAction="http://www.livedoor.cn/sysguard/Logout" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyOsTypeInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/ModifyOsTypeInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyLogInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/ModifyLogInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllGroupInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllGroupInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteGroupByGroupId"><soap:operation soapAction="http://www.livedoor.cn/sysguard/DeleteGroupByGroupId" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllSystemInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllSystemInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddOsTypeInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/AddOsTypeInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteUserByUserId"><soap:operation soapAction="http://www.livedoor.cn/sysguard/DeleteUserByUserId" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllDataInfoStandard"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllDataInfoStandard" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteOsTypeInfoByOsTypeId"><soap:operation soapAction="http://www.livedoor.cn/sysguard/DeleteOsTypeInfoByOsTypeId" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="Login"><soap:operation soapAction="http://www.livedoor.cn/sysguard/Login" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyGroupInf"><soap:operation soapAction="http://www.livedoor.cn/sysguard/ModifyGroupInf" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllRoleInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllRoleInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteHostByHostId"><soap:operation soapAction="http://www.livedoor.cn/sysguard/DeleteHostByHostId" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyHostInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/ModifyHostInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddUser"><soap:operation soapAction="http://www.livedoor.cn/sysguard/AddUser" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddOperationInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/AddOperationInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="BatchUploadFile"><soap:operation soapAction="http://www.livedoor.cn/sysguard/BatchUploadFile" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetOperationById"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetOperationById" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllLogInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllLogInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllOperation"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllOperation" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllUserInfo"><soap:operation soapAction="http://www.livedoor.cn/sysguard/GetAllUserInfo" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddHost"><soap:operation soapAction="http://www.livedoor.cn/sysguard/AddHost" style="document" /><wsdl:input><soap:body use="literal" /></wsdl:input><wsdl:output><soap:body use="literal" /></wsdl:output></wsdl:operation></wsdl:binding><wsdl:binding name="sysguardSOAP12Binding" type="tns:sysguardPortType"><soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" /><wsdl:operation name="GetLoadPicByHostIp"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetLoadPicByHostIp" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddGroup"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/AddGroup" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllOsTypeInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllOsTypeInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteOperationInfoByOperationId"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/DeleteOperationInfoByOperationId" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="BatchExecuteCommand"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/BatchExecuteCommand" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyOperationInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/ModifyOperationInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyUserInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/ModifyUserInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllHostInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllHostInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="Logout"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/Logout" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyOsTypeInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/ModifyOsTypeInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyLogInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/ModifyLogInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllGroupInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllGroupInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteGroupByGroupId"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/DeleteGroupByGroupId" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllSystemInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllSystemInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddOsTypeInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/AddOsTypeInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteUserByUserId"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/DeleteUserByUserId" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllDataInfoStandard"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllDataInfoStandard" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteOsTypeInfoByOsTypeId"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/DeleteOsTypeInfoByOsTypeId" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="Login"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/Login" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyGroupInf"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/ModifyGroupInf" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllRoleInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllRoleInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="DeleteHostByHostId"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/DeleteHostByHostId" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="ModifyHostInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/ModifyHostInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddUser"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/AddUser" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddOperationInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/AddOperationInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="BatchUploadFile"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/BatchUploadFile" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetOperationById"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetOperationById" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllLogInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllLogInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllOperation"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllOperation" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="GetAllUserInfo"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/GetAllUserInfo" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation><wsdl:operation name="AddHost"><soap12:operation soapAction="http://www.livedoor.cn/sysguard/AddHost" style="document" /><wsdl:input><soap12:body use="literal" /></wsdl:input><wsdl:output><soap12:body use="literal" /></wsdl:output></wsdl:operation></wsdl:binding><wsdl:service name="sysguard"><wsdl:port name="sysguardSOAP11port_http" binding="tns:sysguardSOAP11Binding"><soap:address location="http://localhost:8080/axis2/services/sysguard/" /></wsdl:port><wsdl:port name="sysguardSOAP12port_http" binding="tns:sysguardSOAP12Binding"><soap12:address location="http://localhost:8080/axis2/services/sysguard/" /></wsdl:port></wsdl:service></wsdl:definitions>

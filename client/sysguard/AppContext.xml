@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<objects xmlns="http://www.springframework.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <alias name="GenericDictionary" alias="System.Collections.Generic.Dictionary &lt;,>" />
+  <alias name="IStateManagerType" alias="sysguard.Components.IStateManager"/>
+
+  <object id="loginStateManager" type="sysguard.Components.LoginState.LoginStateManager, sysguard"/>
+  <object id="getAllLogInfoStateManager" type="sysguard.Components.GetAllLogInfoState.GetAllLogInfoStateManager,sysguard"/>
+  <object id="modifyLogInfoStateManager" type="sysguard.Components.ModifyLogInfoState.ModifyLogInfoStateManager,sysguard"/>
+  <object id="getAllUserInfoStateManager" type="sysguard.Components.GetAllUserInfoState.GetAllUserInfoStateManager,sysguard"/>
+  <object id="modifyUserInfoStateManager" type="sysguard.Components.ModifyUserInfoState.ModifyUserInfoStateManager,sysguard"/>
+  <object id="addUserStateManager" type="sysguard.Components.AddUserState.AddUserStateManager,sysguard"/>
+  <object id="getAllHostInfoStateManager" type="sysguard.Components.GetAllHostInfoState.GetAllHostInfoStateManager,sysguard"/>
+  <object id="modifyHostInfoStateManager" type="sysguard.Components.ModifyHostInfo.ModifyHostInfoStateManager,sysguard"/>
+  <object id="deleteUserByUserIdManager" type="sysguard.Components.DeleteUserByUserIdState.DeleteUserByUserIdStateManager,sysguard"/>
+  <object id="deleteHostByHostIdManager" type="sysguard.Components.DeleteHostByHostIdState.DeleteHostByHostIdStateManager,sysguard"/>
+  <object id="addHostStateManager" type="sysguard.Components.AddHostState.AddHostStateManager, sysguard"/>
+  <object id="getAllSystemInfoStateManager" type="sysguard.Components.GetAllSystemInfoState.GetAllSystemInfoStateManager,sysguard"/>
+  <object id="getAllDataInfoStandardStateManager" type="sysguard.Components.GetAllDataInfoStandardState.GetAllDataInfoStandardStateManager,sysguard"/>
+  <object id="getAllGroupInfoStatesManager" type="sysguard.Components.GetAllGroupInfoStates.GetAllGroupInfoStateManager,sysguard"/>
+  <object id="addGroupStateManager" type="sysguard.Components.AddGroupState.AddGroupStateManager,sysguard"/>
+  <object id="modifyGroupInfStateManager" type="sysguard.Components.ModifyGroupInfState.ModifyGroupInfStateManager,sysguard"/>
+  <object id="deleteGroupByGroupIdStateManager" type="sysguard.Components.DeleteGroupByGroupIdState.DeleteGroupByGroupIdStateManager,sysguard"/>
+  <object id="getAllOperationInfoStateManager" type="sysguard.Components.GetAllOperationInfoState.GetAllOperationInfoStateManager,sysguard"/>
+  <object id="modifyOperationInfoStateManager" type="sysguard.Components.ModifyOperationInfoState.ModifyOperationInfoStateManager,sysguard"/>
+  <object id="addOperationInfoStateManager" type="sysguard.Components.AddOperationInfoState.AddOperationInfoStateManager,sysguard"/>
+  <object id="deleteOperationInfoByOperationIdStateManager" type="sysguard.Components.DeleteOperationInfoByOperationIdState.DeleteOperationInfoByOperationIdStateManager, sysguard"/>
+  <object id="logoutStateManager" type="sysguard.Components.LogoutState.LogoutStateManager,sysguard"/>
+  <object id="getAllOsTypeInfoStateManager" type="sysguard.Components.GetAllOsTypeInfoState.GetAllOsTypeInfoStateManager,sysguard"/>
+  <object id="modifyOsTypeInfoStateManager" type="sysguard.Components.ModifyOsTypeInfoState.ModifyOsTypeInfoStateManager,sysguard"/>
+  <object id="addOsTypeInfoStateManager" type="sysguard.Components.AddOsTypeInfoState.AddOsTypeInfoStateManager,sysguard"/>
+  <object id="deleteOsTypeInfoByOsTypeIdStateManager" type="sysguard.Components.DeleteOsTypeInfoByOsTypeIdState.DeleteOsTypeInfoByOsTypeIdStateManager,sysguard"/>
+  <object id="getLoadPicByHostIpStateManager" type="sysguard.Components.GetLoadPicByHostIpState.GetLoadPicByHostIpStateManager,sysguard"/>
+
+  <object id="processor" type="sysguard.Components.StateProcessor, sysguard">
+
+    <property name="StateManagerCache">
+
+      <dictionary key-type="string" value-type="sysguard.Components.IStateManager">
+
+        <entry key="LoginResponse" value-ref="loginStateManager"/>
+        <entry key="GetAllLogInfoResponse" value-ref="getAllLogInfoStateManager"/>
+        <entry key="ModifyLogInfoResponse" value-ref="modifyLogInfoStateManager"/>
+        <entry key="GetAllUserInfoResponse" value-ref="getAllUserInfoStateManager"/>
+        <entry key="ModifyUserInfoResponse" value-ref="modifyUserInfoStateManager"/>
+        <entry key="AddUserResponse" value-ref="addUserStateManager"/>
+        <entry key="GetAllHostInfoResponse" value-ref="getAllHostInfoStateManager"/>
+        <entry key="ModifyHostInfoResponse" value-ref="modifyHostInfoStateManager"/>
+        <entry key="DeleteUserByUserIdResponse" value-ref="deleteUserByUserIdManager"/>
+        <entry key="DeleteHostByHostIdResponse" value-ref="deleteHostByHostIdManager"/>
+        <entry key="AddHostResponse" value-ref="addHostStateManager"/>
+        <entry key="GetAllSystemInfoResponse" value-ref="getAllSystemInfoStateManager"/>
+        <entry key="GetAllDataInfoStandardResponse" value-ref="getAllDataInfoStandardStateManager"/>
+        <entry key="GetAllGroupInfoResponse" value-ref="getAllGroupInfoStatesManager"/>
+        <entry key="AddGroupResponse" value-ref="addGroupStateManager"/>
+        <entry key="ModifyGroupInfResponse" value-ref="modifyGroupInfStateManager"/>
+        <entry key="DeleteGroupByGroupIdResponse" value-ref="deleteGroupByGroupIdStateManager"/>
+        <entry key="ModifyOperationInfoResponse" value-ref="modifyOperationInfoStateManager"/>
+        <entry key="AddOperationInfoResponse" value-ref="addOperationInfoStateManager"/>
+        <entry key="DeleteOperationInfoByOperationIdResponse" value-ref="deleteOperationInfoByOperationIdStateManager"/>
+        <entry key="LogoutResponse" value-ref="logoutStateManager"/>
+        <entry key="GetAllOsTypeInfoResponse" value-ref="getAllOsTypeInfoStateManager"/>
+        <entry key="ModifyOsTypeInfoResponse" value-ref="modifyOsTypeInfoStateManager"/>
+        <entry key="AddOsTypeInfoResponse" value-ref="addOsTypeInfoStateManager"/>
+        <entry key="DeleteOsTypeInfoByOsTypeIdResponse" value-ref="deleteOsTypeInfoByOsTypeIdStateManager"/>
+        <entry key="GetLoadPicByHostIpResponse" value-ref="getLoadPicByHostIpStateManager"/>
+
+      </dictionary>
+
+    </property>
+
+  </object>
+
+  <object id="m_dataLayer" type="sysguard.Components.DataLayer,sysguard">
+    <property name="StateProcessor">
+      <ref local="processor"/>
+    </property>
+  </object>
+
+  <object id="loginButtonClickHelper" type="sysguard.Event.login.LoginButtonClickHelper,sysguard"/>
+  <object id="userNameBoxFocusHelper" type="sysguard.Event.login.UserNameBoxFocusHelper,sysguard"/>
+  <object id="userPwdTextFocusHelper" type="sysguard.Event.login.UserPwdTextFocusHelper,sysguard"/>
+
+  <object id ="loginEventAdapter" type="sysguard.Event.login.LoginEventAdapter,sysguard">
+    <property name="LoginClickHelper">
+      <dictionary key-type="sysguard.Event.login.FocusFlags" value-type="sysguard.Event.login.ILoginButtonClickHelper">
+        <entry key="NONE" value-ref="loginButtonClickHelper"/>
+        <entry key="FocusName" value-ref="userNameBoxFocusHelper"/>
+        <entry key="FocusPwd" value-ref="userPwdTextFocusHelper"/>
+      </dictionary>
+    </property>
+    <property name="DataLayer" ref="m_dataLayer"/>
+  </object>
+
+
+</objects>

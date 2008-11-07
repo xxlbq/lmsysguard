@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<settings
+		cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="true"
+		errorTracingEnabled="true"
+		maxRequests="32"
+		maxSessions="10"
+		maxTransactions="5"
+		useStatementNamespaces="true"
+	/>
+	
+	<!-- Configure a built-in transaction manager.  If you're using an 
+		app server, you probably want to use its transaction manager 
+		and a managed datasource -->
+	<transactionManager type="JDBC" commitRequired="false">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver"
+				value="org.gjt.mm.mysql.Driver" />
+			<property name="JDBC.ConnectionURL"
+				value="jdbc:mysql://10.5.1.116:3306/sysguard" />
+			<property name="JDBC.Username" value="info" />
+			<property name="JDBC.Password" value="livedoor" />
+		</dataSource>
+	</transactionManager>
+
+	<!-- List the SQL Map XML files. They can be loaded from the 
+		classpath, as they are here (com.domain.data...) -->
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/applog_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/data_info_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/data_info_type_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/host_group_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/host_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/operation_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/os_type_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/role_SqlMap.xml" />
+	<sqlMap resource="cn/livedoor/security/sysguard/persistence/sqlmapdao/sql/user_SqlMap.xml" />
+
+</sqlMapConfig>

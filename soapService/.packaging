@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurations>
+<archive destination="" exploded="false" name="Sysguard.aar" used="true">
+<folder excludes="" includes="**/*/*.class,**/*/*.properties,**/*/*.xml" location="bin" name="bin" prefix="" project="" projectLocation="bin" used="true"/>
+<file location="resources/sysguard.wsdl" name="sysguard.wsdl" prefix="META-INF" project="" projectLocation="resources/sysguard.wsdl" used="true"/>
+<file location="resources/services.xml" name="services.xml" prefix="META-INF" project="" projectLocation="resources/services.xml" used="true"/>
+</archive>
+</configurations>

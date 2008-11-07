@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: lib/commons-logging-1.0.4.jar lib/ws-commons-java5-1.0.1.jar lib/ws-commons-util-1.0.1.jar lib/xmlrpc-common-3.0rc1.jar lib/xmlrpc-common-3.0rc1-sources.jar lib/xmlrpc-client-3.0rc1.jar lib/xmlrpc-client-3.0rc1-sources.jar lib/log4j-1.2.8.jar lib/ibatis-common-2.jar
+Main-Class: com.livedoor.sysguard.logmonitor.client.MonitorClient
+
